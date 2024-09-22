@@ -52,7 +52,6 @@ fn main() {
 
     println!("Needed number pos for 10 from [1,2,3,4,5,6,7,8,9,0,9] is {} and {}.", res[0], res[1]);
     
-
     pub fn is_palindrome(x: i32) -> bool {
         let front = x.to_string();
         let back = reverse_string(&front);
