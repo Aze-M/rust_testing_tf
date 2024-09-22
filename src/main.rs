@@ -44,13 +44,13 @@ fn main() {
 
     let res = two_sum(numbers, 6);
 
-    println!("Needed number pos for 6 from [3,1,1,1,2,54,1,4,2,4,3,6,5,2,4] is {} {}", res[0], res[1]);
+    println!("Needed number pos for 6 from [3,1,1,1,2,54,1,4,2,4,3,6,5,2,4] is {} and {}.", res[0], res[1]);
 
     numbers = [1,2,3,4,5,6,7,8,9,0,9].to_vec();
 
     let res = two_sum(numbers, 18);
 
-    println!("Needed number pos for 10 from [1,2,3,4,5,6,7,8,9,0,9] is {} {}", res[0], res[1]);
+    println!("Needed number pos for 10 from [1,2,3,4,5,6,7,8,9,0,9] is {} and {}.", res[0], res[1]);
     
 
     pub fn is_palindrome(x: i32) -> bool {
