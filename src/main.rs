@@ -60,6 +60,19 @@ fn main() {
         return false;
     }
 
+    pub fn is_palindrome_math(x: i32) -> bool {
+        let mut _rev = 0;
+        let mut _num = x;
+
+        while _num > _rev {
+            _rev = _rev * 10 + _num % 10;
+            _num /= 10; 
+        }
+
+        _num == _rev || _num == _rev / 10
+    }
+
+
     pub fn reverse_string(_str: &String) -> String {
         return _str.chars().rev().collect();
     }
@@ -73,6 +86,16 @@ fn main() {
     let res = is_palindrome(num);
 
     println!("Palindrome test for {} is {}",num, res);
+
+    let num = 10;
+    let res = is_palindrome_math(num);
+
+    println!("Palindrome test(math) for {} is {}",num, res);
+
+    let num = 999;
+    let res = is_palindrome_math(num);
+
+    println!("Palindrome test(math) for {} is {}",num, res);
 
 
     pub fn add_two_numbers_bad(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
