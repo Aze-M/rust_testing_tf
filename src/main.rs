@@ -15,7 +15,7 @@ fn main() {
             }
         }
     }
-     /*
+    
     pub fn two_sum(_numbers: Vec<i32>, _target: i32) -> Vec<i32> {
         let mut _hash: HashMap<i32,i32> = HashMap::new();
 
@@ -76,7 +76,7 @@ fn main() {
     let res = is_palindrome(num);
 
     println!("{} is {}",num, res);
-     */
+    
 
     pub fn add_two_numbers_bad(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut str_num1 = String::new();
