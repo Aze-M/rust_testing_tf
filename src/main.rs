@@ -1,4 +1,4 @@
-
+use std::collections::HashMap;
 fn main() {
 
     pub struct ListNode {
@@ -76,7 +76,6 @@ fn main() {
     let res = is_palindrome(num);
 
     println!("{} is {}",num, res);
-    
 
     pub fn add_two_numbers_bad(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut str_num1 = String::new();
