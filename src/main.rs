@@ -20,11 +20,15 @@ fn main() {
         let mut _hash: HashMap<i32,i32> = HashMap::new();
 
         for id in 0.._numbers.len() {
-            let reimainder = &(_target - &_numbers[id]);
-            let int_id: i32 = id.try_into().unwrap();
+            let remainder = &(_target - &_numbers[id]);
+            let int_id: i32 = id as i32;
 
-            if _hash.contains_key(reimainder) {
-                let find_id = *_hash.get(reimainder).unwrap();
+            if _hash.contains_key(&_numbers[id]) && !_hash.contains_key(remainder) {
+                continue
+            }
+
+            if _hash.contains_key(remainder) {
+                let find_id = *_hash.get(remainder).unwrap();
                 return [find_id, int_id].to_vec();
             }
 
@@ -33,7 +37,7 @@ fn main() {
             };
         };
 
-        return [0,0].to_vec();
+        return [].to_vec();
     }
 
     let mut numbers = [3,1,1,1,2,54,1,4,2,4,3,6,5,2,4].to_vec();
