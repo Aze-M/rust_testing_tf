@@ -240,11 +240,11 @@ fn main() {
     }));
 
     let list2 = Some(Box::new(ListNode {
-        val: 5,
+        val: 4,
         next: Some(Box::new(ListNode {
-            val: 6,
+            val: 9,
             next: Some(Box::new(ListNode {
-                val: 4,
+                val: 9,
                 next: None,
             })),
         })),
