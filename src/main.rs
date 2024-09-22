@@ -40,15 +40,13 @@ fn main() {
 
     let res = two_sum(numbers, 6);
 
-    println!("Success!");
-    println!("{} {}", res[0], res[1]);
+    println!("Needed number pos for 6 from [3,1,1,1,2,54,1,4,2,4,3,6,5,2,4] is {} {}", res[0], res[1]);
 
     numbers = [1,2,3,4,5,6,7,8,9,0,9].to_vec();
 
     let res = two_sum(numbers, 18);
 
-    println!("Success!");
-    println!("{} {}", res[0], res[1]);
+    println!("Needed number pos for 10 from [1,2,3,4,5,6,7,8,9,0,9] is {} {}", res[0], res[1]);
     
 
     pub fn is_palindrome(x: i32) -> bool {
@@ -63,19 +61,19 @@ fn main() {
     }
 
     pub fn reverse_string(_str: &String) -> String {
-        let mut out = String::new();
-
-        for char in _str.chars().rev() {
-            out.push(char);
-        }
-
-        return out;
+        return _str.chars().rev().collect();
     }
 
     let num = 10;
     let res = is_palindrome(num);
 
-    println!("{} is {}",num, res);
+    println!("Palindrome test for {} is {}",num, res);
+
+    let num = 999;
+    let res = is_palindrome(num);
+
+    println!("Palindrome test for {} is {}",num, res);
+
 
     pub fn add_two_numbers_bad(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut str_num1 = String::new();
@@ -98,9 +96,6 @@ fn main() {
                current = n2.next.take();
             }   
         }
-
-        println!("{} \n", str_num1);
-        println!("{} \n", str_num2);
 
         //manually add the numbers 1 by 1, thanks leetcode for not letting me use bigint
         let max_len = std::cmp::max(str_num1.len(),str_num2.len());
@@ -178,7 +173,6 @@ fn main() {
             }
 
             let new_node = Box::new(ListNode::new(val));
-            println!("{}", val);
 
             *tail = Some(new_node);
             
@@ -187,6 +181,25 @@ fn main() {
 
         return head;
 
+    }
+
+    pub fn print_linked_list(_list: &Option<Box<ListNode>>, _reverse: bool) -> String {
+        let mut travel = _list;
+        let mut out = Vec::new();
+
+        while let Some(ref node) = travel {
+            let cur = (node.val as u8 + b'0') as char;
+            
+            out.push(cur);
+
+            travel = &node.next;
+        }
+
+        if _reverse {
+            out.reverse();
+        }
+
+        return out.into_iter().collect();
     }
 
     let list1 = Some(Box::new(ListNode {
@@ -211,5 +224,10 @@ fn main() {
         })),
     }));
 
-    add_two_numbers(list1, list2);
+    let str1 = print_linked_list(&list1, true);
+    let str2 = print_linked_list(&list2, true);
+
+    let res = add_two_numbers(list1, list2);
+
+    println!("Linked list number {} plus {} is equal to {}", str1, str2, print_linked_list(&res, true));
 }
